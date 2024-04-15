@@ -2,7 +2,7 @@
 
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   HiInformationCircle,
   HiCheck,
@@ -10,6 +10,7 @@ import {
   HiX,
 } from "react-icons/hi";
 import { Toast } from "flowbite-react";
+import OAuth from "../components/OAuth.jsx";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -116,6 +117,7 @@ export default function SignUp() {
                 "Sign Up"
               )}
             </Button>
+            <OAuth />
           </form>
           <div className="mt-4 text-sm">
             <span>Already have an account? </span>

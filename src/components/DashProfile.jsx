@@ -10,6 +10,7 @@ import {
 import { app } from "../firebase";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { Link } from "react-router-dom";
 
 export default function DashProfile() {
   const { currentUser } = useSelector((state) => state.user);
@@ -73,6 +74,8 @@ export default function DashProfile() {
             <CircularProgressbar
               value={imageFileUploadProgress}
               text={`${imageFileUploadProgress}%`}
+              ref={filePickerRef}
+              hidden
             />
           )}
           <img
@@ -102,6 +105,16 @@ export default function DashProfile() {
         />
         <TextInput id="password" type="password" placeholder="Password" />
         <Button color="purple">Update</Button>
+        {/* {
+          currentUser.isAdmin && (
+            <Button type="button" color="red">Delete</Button>
+          )
+        } */}
+        <Link to="/create-post">
+          <Button type="button" color="red" className="w-full">
+            Create a Post
+          </Button>
+        </Link>
       </form>
       <div className="flex justify-between mt-5 text-red-500">
         <span className="cursor-pointer">Delete Account</span>

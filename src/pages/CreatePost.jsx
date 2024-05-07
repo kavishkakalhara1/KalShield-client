@@ -34,7 +34,7 @@ export default function CreatePost() {
           theme="snow"
           placeholder="Write your post here"
           className="mb-12 h-72 "
-          required
+          required id="content"
         />
         <Button type="submit" color="purple">Publish</Button>
       </form>

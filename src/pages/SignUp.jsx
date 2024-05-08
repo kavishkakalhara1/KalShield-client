@@ -1,16 +1,7 @@
-"use client";
-
-import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  HiInformationCircle,
-  HiCheck,
-  HiExclamation,
-  HiX,
-} from "react-icons/hi";
-import { Toast } from "flowbite-react";
-import OAuth from "../components/OAuth.jsx";
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import OAuth from '../components/OAuth';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -18,34 +9,28 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value.trim(),
-    });
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
-      return setErrorMessage("Please Fill Out All Fields");
+      return setErrorMessage('Please fill out all fields.');
     }
-
     try {
       setLoading(true);
       setErrorMessage(null);
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const data = await response.json();
+      const data = await res.json();
       if (data.success === false) {
         return setErrorMessage(data.message);
       }
       setLoading(false);
-      if (response.ok) {
-        navigate("/sign-in");
+      if(res.ok) {
+        navigate('/sign-in');
       }
     } catch (error) {
       setErrorMessage(error.message);
@@ -53,87 +38,78 @@ export default function SignUp() {
     }
   };
   return (
-    <div className="min-h-screen mt-20">
-      <div className="flex flex-col max-w-3xl gap-20 p-3 mx-auto md:flex-row">
+    <div className='min-h-screen mt-20'>
+      <div className='flex flex-col max-w-3xl gap-5 p-3 mx-auto md:flex-row md:items-center'>
         {/* left */}
-        <div className="flex-1">
-          <Link
-            to="/"
-            className="text-5xl font-bold dark:text-white md:text-7xl md:items-center"
-          >
-            <span className="py-1 pr-5 text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text">
-              Kal
+        <div className='flex-1'>
+          <Link to='/' className='text-4xl font-bold dark:text-white'>
+            <span className='px-2 py-1 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
+              Sahand's
             </span>
-            SHIELD
+            Blog
           </Link>
-          <p className="mt-5 text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <p className='mt-5 text-sm'>
+            This is a demo project. You can sign up with your email and password
+            or with Google.
           </p>
         </div>
-
         {/* right */}
 
-        <div className="flex-1">
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        <div className='flex-1'>
+          <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
-              <Label value="Username" />
+              <Label value='Your username' />
               <TextInput
-                type="text"
-                placeholder="Username"
-                id="username"
+                type='text'
+                placeholder='Username'
+                id='username'
                 onChange={handleChange}
               />
             </div>
             <div>
-              <Label value="Email" />
+              <Label value='Your email' />
               <TextInput
-                type="email"
-                placeholder="example@email.com"
-                id="email"
+                type='email'
+                placeholder='name@company.com'
+                id='email'
                 onChange={handleChange}
               />
             </div>
             <div>
-              <Label value="Password" />
+              <Label value='Your password' />
               <TextInput
-                type="password"
-                placeholder="Password"
-                id="password"
+                type='password'
+                placeholder='Password'
+                id='password'
                 onChange={handleChange}
               />
             </div>
             <Button
-              gradientDuoTone="purpleToPink"
-              type="submit"
-              outline
+              gradientDuoTone='purpleToPink'
+              type='submit'
               disabled={loading}
             >
               {loading ? (
                 <>
-                  <Spinner size="sm" />
-                  <span className="pl-3">Loading...</span>
+                  <Spinner size='sm' />
+                  <span className='pl-3'>Loading...</span>
                 </>
               ) : (
-                "Sign Up"
+                'Sign Up'
               )}
             </Button>
             <OAuth />
           </form>
-          <div className="mt-4 text-sm">
-            <span>Already have an account? </span>
-            <Link to="/sign-in" className="text-blue-500">
+          <div className='flex gap-2 mt-5 text-sm'>
+            <span>Have an account?</span>
+            <Link to='/sign-in' className='text-blue-500'>
               Sign In
             </Link>
           </div>
-
           {errorMessage && (
-            <Toast>
-              <div className="inline-flex items-center justify-center w-8 h-8 text-orange-500 bg-orange-100 rounded-lg shrink-0 dark:bg-orange-700 dark:text-orange-200">
-                <HiExclamation className="w-5 h-5" />
-              </div>
-              <div className="ml-3 text-sm font-normal">{errorMessage}</div>
-              <Toast.Toggle />
-            </Toast>
+            <Alert className='mt-5' color='failure'>
+              {errorMessage}
+            </Alert>
           )}
         </div>
       </div>

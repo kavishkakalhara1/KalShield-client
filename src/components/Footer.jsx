@@ -14,9 +14,9 @@ export default function FooterComponent() {
             className="text-3xl font-bold dark:text-white md:text-4xl md:items-center"
           >
             <span className="py-10 pr-5 text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text">
-              Kal
+              Baby
             </span>
-            SHIELD
+            Hacker
           </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

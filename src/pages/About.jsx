@@ -1,33 +1,48 @@
+import { Card } from "flowbite-react";
+import KalShield from "../assets/my.jpg";
+import ContactCard from "../components/ContactCard";
+
 export default function About() {
   return (
-    <div className='flex items-center justify-center min-h-screen'>
-      <div className='max-w-2xl p-3 mx-auto text-center'>
-        <div>
-          <h1 className='text-3xl font-semibold text-center font my-7'>
-            About Sahand' Blog
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="flex flex-col p-3 mx-auto text-center max-w-7xl md:flex-row">
+        <div className="flex-1 md:mr-6">
+          <h1 className="mt-0 mb-6 text-3xl font-semibold text-center font">
+            What is Baby Hacker's Blog
           </h1>
-          <div className='flex flex-col gap-6 text-gray-500 text-md'>
+          <div className="flex flex-col gap-6 text-gray-500 text-md">
             <p>
-              Welcome to Sahand's Blog! This blog was created by Sahand Ghavidel
-              as a personal project to share his thoughts and ideas with the
-              world. Sahand is a passionate developer who loves to write about
-              technology, coding, and everything in between.
+              Welcome to Baby Hacker Cyber Security, founded by Kavishka
+              Kalhara, a passionate Computer Engineering undergraduate at the
+              University of Ruhuna with a keen interest in cybersecurity.
             </p>
 
             <p>
-              On this blog, you'll find weekly articles and tutorials on topics
-              such as web development, software engineering, and programming
-              languages. Sahand is always learning and exploring new
-              technologies, so be sure to check back often for new content!
+              At Baby Hacker, we are driven by a shared passion for
+              cybersecurity and a commitment to fostering a safer digital world.
+              With Kavishka's expertise and dedication, our blog serves as a hub
+              for insightful content, practical tips, and engaging discussions
+              on all things cybersecurity.
             </p>
 
             <p>
-              We encourage you to leave comments on our posts and engage with
-              other readers. You can like other people's comments and reply to
-              them as well. We believe that a community of learners can help
-              each other grow and improve.
+              From beginner-friendly guides to advanced security strategies,
+              Baby Hacker offers a diverse range of content tailored to meet the
+              needs of learners at every stage of their cybersecurity journey.
+              Whether you're a fellow student, a concerned parent, or simply
+              someone curious about the world of cybersecurity, you'll find
+              valuable resources and support within our community.
+            </p>
+            <p>
+              Join us as we explore the fascinating world of cybersecurity
+              together, guided by Kavishka's expertise and fueled by our
+              collective passion for learning and innovation. Together, we can
+              build a safer and more secure digital future.
             </p>
           </div>
+        </div>
+        <div className="flex-1 mx-auto mt-7 md:ml-6">
+          <ContactCard/>
         </div>
       </div>
     </div>

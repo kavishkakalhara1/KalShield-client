@@ -14,6 +14,9 @@ import UpdatePost from './pages/UpdatePost';
 import PostPage from './pages/PostPage';
 import ScrollToTop from './components/ScrollToTop';
 import Search from './pages/Search';
+import NotFound from './pages/NotFound';
+import React, { Suspense } from 'react';
+
 
 export default function App() {
   return (
@@ -26,16 +29,18 @@ export default function App() {
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/search' element={<Search />} />
+        <Route path='/projects' element={<Projects />} />
+        <Route path='/post/:postSlug' element={<PostPage />} />
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />
-        </Route>
-        <Route element={<OnlyAdminPrivateRoute />}>
           <Route path='/create-post' element={<CreatePost />} />
           <Route path='/update-post/:postId' element={<UpdatePost />} />
         </Route>
-
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/post/:postSlug' element={<PostPage />} />
+        <Route element={<OnlyAdminPrivateRoute />}>
+          {/* Add admin routes here if needed */}
+        </Route>
+        {/* Define a catch-all route for 404 errors */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

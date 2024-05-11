@@ -16,20 +16,19 @@ import ScrollToTop from './components/ScrollToTop';
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 import React, { Suspense } from 'react';
+import AnimatedRoutes from './components/Animatedroutes';
 
 
 export default function App() {
+  // const location = useLocation();
   return (
+    
     <BrowserRouter>
       <ScrollToTop />
       <Header />
+      <AnimatedRoutes />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/search' element={<Search />} />
-        <Route path='/projects' element={<Projects />} />
+        
         <Route path='/post/:postSlug' element={<PostPage />} />
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />

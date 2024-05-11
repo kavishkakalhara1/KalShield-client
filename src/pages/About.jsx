@@ -1,10 +1,16 @@
 import { Card } from "flowbite-react";
 import KalShield from "../assets/my.jpg";
 import ContactCard from "../components/ContactCard";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <motion.div
+      className="flex items-center justify-center min-h-screen"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+    >
       <div className="flex flex-col p-3 mx-auto text-center max-w-7xl md:flex-row">
         <div className="flex-1 md:mr-6">
           <h1 className="mt-0 mb-6 text-3xl font-semibold text-center font">
@@ -42,9 +48,9 @@ export default function About() {
           </div>
         </div>
         <div className="flex-1 mx-auto mt-7 md:ml-6">
-          <ContactCard/>
+          <ContactCard />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
 import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -15,7 +16,11 @@ export default function Home() {
     fetchPosts();
   }, []);
   return (
-    <div>
+    <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: "100%" }}
+    exit={{ x:window.innerWidth, transition:{duration:0.2} }}
+    >
       <div className="flex flex-col max-w-6xl gap-6 px-3 mx-auto p-28 ">
         <h1 className="text-3xl font-bold lg:text-6xl">
           Empowering You to Navigate the Digital World Safely
@@ -57,6 +62,6 @@ export default function Home() {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -22,17 +22,17 @@ export default function Home({ text, index }) {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
-      <div className="flex flex-col max-w-6xl min-h-screen gap-6 px-3 mx-auto p-28">
+      <div className="z-10 flex flex-col max-w-6xl min-h-screen gap-6 px-3 mx-auto p-28">
         <TypeAnimation
           sequence={[
             // Same substring at the start will only be typed out once, initially
-            "Empowering You to Navigate the Digital World Safely",
+            "{Empowering You to Navigate the Digital World Safely}",
             1000, // wait 1s before replacing "Mice" with "Hamsters"
-            "Empowering You to Navigate the Digital World Securely",
+            "{Empowering You to Navigate the Digital World Securely}",
             1000,
-            "Empowering You to Navigate the Digital World Creatively",
+            "{Empowering You to Navigate the Digital World Creatively}",
             1000,
-            "Empowering You to Navigate the Digital World Confidently",
+            "{Empowering You to Navigate the Digital World Confidently}",
             1000,
           ]}
           wrapper="span"
@@ -55,9 +55,18 @@ export default function Home({ text, index }) {
         >
           View all posts
         </Link>
+        <div className="absolute right-0 flex justify-center top-8">
+          <img
+            className="flex float-right h-auto max-w-lg mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
+            src="src/assets/me12.png"
+            alt="image description"
+          />
+        </div>
       </div>
+      
+
       <motion.div
-        className="p-3 bg-amber-100 dark:bg-slate-700"
+        className="z-20 p-3 bg-amber-100 dark:bg-slate-700"
         initial={{
           opacity: 0,
           // if odd index card,slide from right instead of left

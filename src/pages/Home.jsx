@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import PostCard from "../components/PostCard";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { Button } from "flowbite-react";
 
 export default function Home({ text, index }) {
   const [posts, setPosts] = useState([]);
@@ -18,21 +19,21 @@ export default function Home({ text, index }) {
   }, []);
   return (
     <motion.div
-      initial={{ width: 0 }}
-      animate={{ width: "100%" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 2 } }}
       exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
-      <div className="z-10 flex flex-col max-w-6xl min-h-screen gap-6 px-3 mx-auto p-28">
+      <div className="z-10 flex flex-col max-w-6xl min-h-screen gap-6 px-3 mx-auto mt-20 p-28">
         <TypeAnimation
           sequence={[
             // Same substring at the start will only be typed out once, initially
-            "{Empowering You to Navigate the Digital World Safely}",
+            "{ Empowering You to Navigate the Digital World Safely}",
             1000, // wait 1s before replacing "Mice" with "Hamsters"
-            "{Empowering You to Navigate the Digital World Securely}",
+            "{ Empowering You to Navigate the Digital World Securely}",
             1000,
-            "{Empowering You to Navigate the Digital World Creatively}",
+            "{ Empowering You to Navigate the Digital World Creatively}",
             1000,
-            "{Empowering You to Navigate the Digital World Confidently}",
+            "{ Empowering You to Navigate the Digital World Confidently}",
             1000,
           ]}
           wrapper="span"
@@ -41,29 +42,46 @@ export default function Home({ text, index }) {
           className="text-3xl font-bold lg:text-6xl"
         />
 
-        <p className="text-xs text-gray-400 sm:text-sm">
+        <motion.div
+          className="absolute flex justify-center float-right right-5 top-14"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1, transition: { duration: 2 } }}
+          exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+          whileHover={{ y: -8 }}
+        >
+          <img
+            className="flex float-right h-auto max-w-lg mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
+            src="src/assets/hacker.png"
+            alt="image description"
+          />
+        </motion.div>
+
+        <motion.p
+          className="text-xs text-gray-400 sm:text-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 10 } }}
+          exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+        >
           At Baby Hacker Cyber Security, we believe that everyone should have
-          the knowledge and tools to protect themselves in the digital age. With
+          the knowledge and tools to protect themselves in the digital age. 
+          {/* With
           the rapid advancement of technology, cybersecurity has become more
           critical than ever. Whether you're a student, a parent, a business
           owner, or simply someone who wants to stay safe online, our blog is
-          here to help.
-        </p>
-        <Link
-          to="/search"
-          className="text-xs font-bold text-teal-500 sm:text-sm hover:underline"
+          here to help. */}
+        </motion.p>
+        
+        <Button
+          gradientDuoTone="purpleToPink"
+          className="rounded-bl-none w-80 rounded-tl-xl"
         >
-          View all posts
-        </Link>
-        <div className="absolute right-0 flex justify-center top-8">
-          <img
-            className="flex float-right h-auto max-w-lg mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
-            src="src/assets/me12.png"
-            alt="image description"
-          />
-        </div>
+          <Link
+            to="/search"
+          >
+            Learn More
+          </Link>
+        </Button>
       </div>
-      
 
       <motion.div
         className="z-20 p-3 bg-amber-100 dark:bg-slate-700"
@@ -76,7 +94,7 @@ export default function Home({ text, index }) {
           opacity: 1,
           x: 0, // Slide in to its original position
           transition: {
-            duration: 2, // Animation duration
+            duration: 1, // Animation duration
           },
         }}
         viewport={{ once: false }}
@@ -95,7 +113,7 @@ export default function Home({ text, index }) {
           opacity: 1,
           x: 0, // Slide in to its original position
           transition: {
-            duration: 2, // Animation duration
+            duration: 1, // Animation duration
           },
         }}
         viewport={{ once: false }}

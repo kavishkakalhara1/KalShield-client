@@ -145,7 +145,7 @@ export default function Search() {
         <h1 className='p-3 mt-5 text-3xl font-semibold border-gray-500 sm:border-b '>
           Posts results:
         </h1>
-        <div className='flex flex-wrap gap-4 p-7'>
+        <div className='flex flex-wrap gap-4 p-7 '>
           {!loading && posts.length === 0 && (
             <p className='text-xl text-gray-500'>No posts found.</p>
           )}

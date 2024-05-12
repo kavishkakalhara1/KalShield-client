@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function ContactCard() {
   return (
     <div>
-      <Card className="max-w-sm mx-auto">
+      <Card className="max-w-sm mx-auto transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
         <div className="flex flex-col items-center pb-10">
           <img
             alt="Kalhara image"
@@ -13,6 +13,7 @@ export default function ContactCard() {
             src="src\assets\my.jpg"
             width="96"
             className="mb-3 rounded-full shadow-lg"
+            
           />
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
             Kavishka Kalhara

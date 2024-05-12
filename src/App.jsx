@@ -36,7 +36,7 @@ export default function App() {
           {/* Add admin routes here if needed */}
         </Route>
         {/* Define a catch-all route for 404 errors */}
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

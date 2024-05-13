@@ -49,7 +49,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className='border-b-2'>
+    <Navbar className='border-b-2 z-100'>
       <Link
         to='/'
         className='self-center text-sm font-semibold whitespace-nowrap sm:text-xl dark:text-white'

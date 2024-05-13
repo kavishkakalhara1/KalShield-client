@@ -5,6 +5,7 @@ import PostCard from "../components/PostCard";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "flowbite-react";
+import Spline from "@splinetool/react-spline";
 
 export default function Home({ text, index }) {
   const [posts, setPosts] = useState([]);
@@ -24,6 +25,23 @@ export default function Home({ text, index }) {
       exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
       <div className="z-10 flex flex-col max-w-6xl min-h-screen gap-6 px-3 mx-auto mt-20 p-28">
+        <motion.div
+          className="absolute right-0 flex justify-center float-right top-14"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1, transition: { duration: 2 } }}
+          exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
+          whileHover={{ y: -8 }}
+        >
+          {/* <img
+            className="flex float-right h-auto max-w-lg mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
+            src="src/assets/hacker.png"
+            alt="image description"
+          /> */}
+          <Spline
+            scene="https://prod.spline.design/SnWScgl2fe-FO2QZ/scene.splinecode"
+            className="flex h-auto mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
+          />
+        </motion.div>
         <TypeAnimation
           sequence={[
             // Same substring at the start will only be typed out once, initially
@@ -39,22 +57,8 @@ export default function Home({ text, index }) {
           wrapper="span"
           speed={50}
           repeat={Infinity}
-          className="text-3xl font-bold lg:text-6xl"
+          className="z-20 text-3xl font-bold lg:text-6xl"
         />
-
-        <motion.div
-          className="absolute flex justify-center float-right right-5 top-14"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1, transition: { duration: 2 } }}
-          exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
-          whileHover={{ y: -8 }}
-        >
-          <img
-            className="flex float-right h-auto max-w-lg mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
-            src="src/assets/hacker.png"
-            alt="image description"
-          />
-        </motion.div>
 
         <motion.p
           className="text-xs text-gray-400 sm:text-sm"
@@ -63,28 +67,24 @@ export default function Home({ text, index }) {
           exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
         >
           At Baby Hacker Cyber Security, we believe that everyone should have
-          the knowledge and tools to protect themselves in the digital age. 
+          the knowledge and tools to protect themselves in the digital age.
           {/* With
           the rapid advancement of technology, cybersecurity has become more
           critical than ever. Whether you're a student, a parent, a business
           owner, or simply someone who wants to stay safe online, our blog is
           here to help. */}
         </motion.p>
-        
+
         <Button
           gradientDuoTone="purpleToPink"
           className="rounded-bl-none w-80 rounded-tl-xl"
         >
-          <Link
-            to="/search"
-          >
-            Learn More
-          </Link>
+          <Link to="/search">Learn More</Link>
         </Button>
       </div>
 
       <motion.div
-        className="z-20 p-3 bg-amber-100 dark:bg-slate-700"
+        className="z-40 bg-amber-100 dark:bg-slate-700"
         initial={{
           opacity: 0,
           // if odd index card,slide from right instead of left

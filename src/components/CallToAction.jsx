@@ -11,7 +11,7 @@ export default function CallToAction() {
                 Checkout 
             </p>
             <Button gradientDuoTone='purpleToPink' className='rounded-bl-none rounded-tl-xl'>
-                <a href="https://www.100jsprojects.com" target='_blank' rel='noopener noreferrer'>
+                <a href="https://www.youtube.com/@BabyHacker_lk" target='_blank' rel='noopener noreferrer'>
                     Baby Hacker YouTube channel
                 </a>
             </Button>

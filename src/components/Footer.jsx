@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "flowbite-react";
-import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 export default function FooterComponent() {
@@ -13,10 +13,7 @@ export default function FooterComponent() {
             to="/"
             className="text-3xl font-bold dark:text-white md:text-4xl md:items-center"
           >
-            <span className="py-10 pr-5 text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text">
-              Baby
-            </span>
-            Hacker
+            <img src="src/assets/BabyHackerTextLogo_White.png" className="h-auto w-60"/>
           </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

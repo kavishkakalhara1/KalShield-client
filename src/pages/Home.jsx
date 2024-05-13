@@ -39,7 +39,7 @@ export default function Home({ text, index }) {
           /> */}
           <Spline
             scene="https://prod.spline.design/SnWScgl2fe-FO2QZ/scene.splinecode"
-            className="flex h-auto mt-0 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
+            className="flex h-auto mt-8 overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0 ms-auto"
           />
         </motion.div>
         <TypeAnimation
